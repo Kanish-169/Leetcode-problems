@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+void removeAll(int arr[], int *size, int num) {
+    int i, j = 0;
+    for(i = 0; i < *size; i++) {
+        if(arr[i] != num) {
+            arr[j++] = arr[i];
+        }
+    }
+    *size = j; // Update the size of the array
+}
+
+void printArray(int arr[], int size) {
+    for(int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int n, num;
+    
+    // Read the number of elements in the array
+    scanf("%d", &n);
+    
+    int arr[n];
+    
+    // Read the array elements
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    // Read the number to remove
+    scanf("%d", &num);
+    
+    // Remove all instances of the specified number
+    removeAll(arr, &n, num);
+    
+    // Print the modified array
+    printArray(arr, n);
+    
+    return 0;
+}
